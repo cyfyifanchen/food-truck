@@ -1,8 +1,10 @@
-# Food Truck Visualization
+# Food Truck Web App
 
-## Overview
+## Screenshots
 
 ![](public/food-truck.png)
+
+## Start the project locally
 
 It is a demo app built on top of Next.js, using React to render the data out, and Tailwind for style.
 
