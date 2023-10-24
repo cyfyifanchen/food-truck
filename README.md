@@ -21,4 +21,4 @@ port is at `localhost:3000`
 
 - [] Randomize 3 lunch ideas every day, easier for the team to pick from.
 - [] Highlight the randomize ideas, adding maybe borders to stand out from the rest.
-- [] Adding filters for types of lunch.(e.g. tacos or burgers)
+- [x] Adding filters for types of lunch.(e.g. tacos or burgers)
