@@ -40,9 +40,17 @@ const App: React.FC = () => {
 
   // Filter food trucks based on the selected option
   const filteredTrucks =
-    filterValue === 'tacos'
+    filterValue === 'mexican'
       ? foodTrucks.filter((truck) =>
           truck.fooditems?.toLowerCase().includes('tacos')
+        )
+      : filterValue === 'chinese'
+      ? foodTrucks.filter((truck) =>
+          truck.fooditems?.toLowerCase().includes('chinese')
+        )
+      : filterValue === 'italian'
+      ? foodTrucks.filter((truck) =>
+          truck.fooditems?.toLowerCase().includes('italian')
         )
       : foodTrucks
 
@@ -64,7 +72,9 @@ const App: React.FC = () => {
           onChange={handleFilterChange}
         >
           <option value="all">All</option>
-          <option value="tacos">Tacos</option>
+          <option value="chinese">Chinese</option>
+          <option value="mexican">Mexican</option>
+          <option value="italian">Italian</option>
         </select>
       </div>
 
