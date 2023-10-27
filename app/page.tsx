@@ -14,19 +14,22 @@ interface FoodTruck {
 }
 
 const App: React.FC = () => {
+  const apiUrl = 'https://data.sfgov.org/resource/rqzj-sfat.json'
   const [foodTrucks, setFoodTrucks] = useState<FoodTruck[]>([])
   // Initial Data
   const [filterValue, setFilterValue] = useState<string>('all')
-  const apiUrl = 'https://data.sfgov.org/resource/rqzj-sfat.json'
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     axios
       .get<FoodTruck[]>(apiUrl)
       .then((response) => {
         setFoodTrucks(response.data)
+        setIsLoading(false)
       })
       .catch((error) => {
         console.error('Error fetching data:', error)
+        setIsLoading(true)
       })
   }, [])
 
@@ -65,6 +68,7 @@ const App: React.FC = () => {
         </select>
       </div>
 
+      {isLoading && <p>Loading...</p>}
       <div className="w-full h-full text-center p-10">
         <div className="food-truck-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredTrucks.map((truck) => (
