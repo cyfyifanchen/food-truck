@@ -78,8 +78,8 @@ const App: React.FC = () => {
         </select>
       </div>
 
-      {isLoading && <p>Loading...</p>}
       <div className="w-full h-full text-center p-10">
+        <div className="">{isLoading && <p>Loading...</p>}</div>
         <div className="food-truck-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredTrucks.map((truck) => (
             <div
