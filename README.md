@@ -21,8 +21,9 @@ port is at `localhost:3000`
 
 ## Todos for the future maybe
 
-- [] Randomize 3 lunch ideas every day, easier for the team to pick from.
-- [] Highlight the randomize ideas, adding maybe borders to stand out from the rest.
+- [x] Make a random button, randomize 3 food trucks every time clicks.
+- [x] Put res of randomized food truck on top.
 - [x] Adding filters for types of lunch.(e.g. tacos or burgers).
 - [x] Adding loading state.
 - [x] Adding Chinese, Mexican and Italian filters.
+- [] Making the UI pretty.

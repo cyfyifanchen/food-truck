@@ -21,13 +21,19 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   // Random food truck
-  const [randomFoodTruck, setRandomFoodTruck] = useState<FoodTruck | null>(null)
+  const [randomFoodTrucks, setRandomFoodTrucks] = useState<FoodTruck[]>([])
 
   // Function to select a random food truck
-  const selectRandomFoodTruck = () => {
-    const randomIndex = Math.floor(Math.random() * filteredTrucks.length)
-    const randomTruck = filteredTrucks[randomIndex]
-    setRandomFoodTruck(randomTruck)
+  const selectRandomFoodTrucks = () => {
+    const numberOfRandomTrucks = 3
+    const randomTrucks = []
+
+    for (let i = 0; i < numberOfRandomTrucks; i++) {
+      const randomIndex = Math.floor(Math.random() * filteredTrucks.length)
+      randomTrucks.push(filteredTrucks[randomIndex])
+    }
+
+    setRandomFoodTrucks(randomTrucks)
   }
 
   useEffect(() => {
@@ -71,7 +77,7 @@ const App: React.FC = () => {
       <div className="mb-4">
         <div className="mb-4">
           <button
-            onClick={selectRandomFoodTruck}
+            onClick={selectRandomFoodTrucks}
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
             Select Random Food Truck
@@ -98,25 +104,25 @@ const App: React.FC = () => {
 
       <div className="w-full h-full text-center p-10">
         <div className="">{isLoading && <p>Loading...</p>}</div>
-        {randomFoodTruck && (
-          <div className="food-truck-card p-6 border border-gray-200 bg-white rounded shadow-lg">
+        {randomFoodTrucks.map((truck) => (
+          <div
+            className="food-truck-card p-6 border border-gray-200 bg-white rounded shadow-lg"
+            key={truck.objectid}
+          >
             <h2 className="text-2xl font-semibold text-gray-900 mb-8">
-              {randomFoodTruck.applicant}
+              {truck.applicant}
             </h2>
             <div className="text-left text-sm">
-              <p className="mb-1">
-                Facility Type: {randomFoodTruck.facilitytype}
-              </p>
-              <p className="mb-1">
-                Location: {randomFoodTruck.locationdescription}
-              </p>
-              <p className="mb-1">Address: {randomFoodTruck.address}</p>
-              <p className="mb-1">Permit: {randomFoodTruck.permit}</p>
-              <p className="mb-1">Status: {randomFoodTruck.status}</p>
-              <p>Food Items: {randomFoodTruck.fooditems}</p>
+              <p className="mb-1">Facility Type: {truck.facilitytype}</p>
+              <p className="mb-1">Location: {truck.locationdescription}</p>
+              <p className="mb-1">Address: {truck.address}</p>
+              <p className="mb-1">Permit: {truck.permit}</p>
+              <p className="mb-1">Status: {truck.status}</p>
+              <p>Food Items: {truck.fooditems}</p>
             </div>
           </div>
-        )}
+        ))}
+
         <div className="food-truck-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredTrucks.map((truck) => (
             <div
