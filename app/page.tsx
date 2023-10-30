@@ -85,7 +85,7 @@ const App: React.FC = () => {
           Roll Three For Me
         </button>
         <p className="text-gray-400 mt-3">
-          I don't know what to eat, roll for me.
+          Hard to decide what to eat, roll for me.
         </p>
       </div>
       <div className="w-full h-full text-center p-10">
