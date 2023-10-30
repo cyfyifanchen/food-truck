@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Logo } from './components/logo'
 
 interface FoodTruck {
   objectid: number
@@ -72,42 +73,26 @@ const App: React.FC = () => {
 
   return (
     <div className="w-full h-full text-center p-10">
-      <h1 className="text-3xl font-bold mb-4 text-gray-800">Food Trucks</h1>
-
-      <div className="mb-4">
-        <div className="mb-4">
-          <button
-            onClick={selectRandomFoodTrucks}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Roll three for me
-          </button>
-        </div>
-        <label
-          className="block text-gray-700 text-sm font-bold mb-2"
-          htmlFor="filterSelect"
-        >
-          Select food types by countries
-        </label>
-        <select
-          id="filterSelect"
-          className="block w-full border border-gray-300 rounded py-2 px-3"
-          value={filterValue}
-          onChange={handleFilterChange}
-        >
-          <option value="all">All</option>
-          <option value="chinese">Chinese</option>
-          <option value="mexican">Mexican</option>
-          <option value="italian">Italian</option>
-        </select>
+      <div className="flex justify-center">
+        <Logo />
       </div>
-
+      <p className="italic text-gray-400">A local food truck service</p>
+      <div className="mt-20">
+        <button
+          onClick={selectRandomFoodTrucks}
+          className="bg-gray-900 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded"
+        >
+          Roll Three For Me
+        </button>
+        <p className="text-gray-400 mt-3">
+          I don't know what to eat, roll for me.
+        </p>
+      </div>
       <div className="w-full h-full text-center p-10">
-        <div className="">{isLoading && <p>Loading...</p>}</div>
         <div className="food-truck-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {randomFoodTrucks.map((truck) => (
             <div
-              className="food-truck-card p-6 mb-10 border border-blue-500 bg-white rounded shadow-lg"
+              className="food-truck-card p-6 mb-10 border-2 border-gray-500 bg-white rounded shadow-lg"
               key={truck.objectid}
             >
               <h2 className="text-2xl font-semibold text-gray-900 mb-8">
@@ -124,7 +109,23 @@ const App: React.FC = () => {
             </div>
           ))}
         </div>
-
+        <div className="mt-5 mb-10">
+          <h2 className="font-bold text-xl mb-5">
+            Or pick your lunch idea by country
+          </h2>
+          <select
+            id="filterSelect"
+            className="block w-full border border-gray-300 rounded py-2 px-3"
+            value={filterValue}
+            onChange={handleFilterChange}
+          >
+            <option value="all">All</option>
+            <option value="chinese">Chinese</option>
+            <option value="mexican">Mexican</option>
+            <option value="italian">Italian</option>
+          </select>
+        </div>
+        <div className="">{isLoading && <p>Loading...</p>}</div>
         <div className="food-truck-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredTrucks.map((truck) => (
             <div
