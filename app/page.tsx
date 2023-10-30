@@ -80,7 +80,7 @@ const App: React.FC = () => {
             onClick={selectRandomFoodTrucks}
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
-            Select Random Food Truck
+            Roll three for me
           </button>
         </div>
         <label
@@ -104,24 +104,26 @@ const App: React.FC = () => {
 
       <div className="w-full h-full text-center p-10">
         <div className="">{isLoading && <p>Loading...</p>}</div>
-        {randomFoodTrucks.map((truck) => (
-          <div
-            className="food-truck-card p-6 border border-gray-200 bg-white rounded shadow-lg"
-            key={truck.objectid}
-          >
-            <h2 className="text-2xl font-semibold text-gray-900 mb-8">
-              {truck.applicant}
-            </h2>
-            <div className="text-left text-sm">
-              <p className="mb-1">Facility Type: {truck.facilitytype}</p>
-              <p className="mb-1">Location: {truck.locationdescription}</p>
-              <p className="mb-1">Address: {truck.address}</p>
-              <p className="mb-1">Permit: {truck.permit}</p>
-              <p className="mb-1">Status: {truck.status}</p>
-              <p>Food Items: {truck.fooditems}</p>
+        <div className="food-truck-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {randomFoodTrucks.map((truck) => (
+            <div
+              className="food-truck-card p-6 mb-10 border border-blue-500 bg-white rounded shadow-lg"
+              key={truck.objectid}
+            >
+              <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+                {truck.applicant}
+              </h2>
+              <div className="text-left text-sm">
+                <p className="mb-1">Facility Type: {truck.facilitytype}</p>
+                <p className="mb-1">Location: {truck.locationdescription}</p>
+                <p className="mb-1">Address: {truck.address}</p>
+                <p className="mb-1">Permit: {truck.permit}</p>
+                <p className="mb-1">Status: {truck.status}</p>
+                <p>Food Items: {truck.fooditems}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         <div className="food-truck-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredTrucks.map((truck) => (
