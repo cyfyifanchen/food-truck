@@ -26,6 +26,7 @@ port is at `localhost:3000`
 - [x] Adding filters for types of lunch.(e.g. tacos or burgers).
 - [x] Adding loading state.
 - [x] Adding Chinese, Mexican and Italian filters.
-- [] Making the UI more user-friendly. e.g instead of using drop down select filter, it's probably better to use click button.
-- [] Enable random while disabling filter or vice versa.
+- [x] Better UI and UX.
+- ~~[] Making the UI more user-friendly. e.g instead of using drop down select filter, it's probably better to use click button.~~
+- ~~[] Enable random while disabling filter or vice versa.~~
 - [] Adding backend API.
