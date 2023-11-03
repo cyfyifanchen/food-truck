@@ -2,6 +2,12 @@
 
 Visit [The Food Truck Web App](https://food-truck-theta.vercel.app/) live.
 
+## Motivation
+
+I start to like this little project, I decide to take it as far as I can, polishing it up, making it a real-world product in any way that can impress anyone.(anyone includes my mom in case I Fed up). 🤔
+
+And, I'd like to get feedbacks to make it better.
+
 ## Screenshots
 
 ![](public/food-truck.png)
@@ -29,8 +35,3 @@ port is at `localhost:3000`
 - [x] Better UI and UX.
 - ~~[] Making the UI more user-friendly. e.g instead of using drop down select filter, it's probably better to use click button.~~
 - ~~[] Enable random while disabling filter or vice versa.~~
-- [] Maybe make a nav for random food truck and filtered food truck
-- [] Skelton
-- [] Trying out partial rendering
-- [] Fetch the data on the server, and pass it to as prop
-- [] Search
