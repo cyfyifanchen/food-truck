@@ -29,4 +29,8 @@ port is at `localhost:3000`
 - [x] Better UI and UX.
 - ~~[] Making the UI more user-friendly. e.g instead of using drop down select filter, it's probably better to use click button.~~
 - ~~[] Enable random while disabling filter or vice versa.~~
-- [] Adding backend API.
+- [] Maybe make a nav for random food truck and filtered food truck
+- [] Skelton
+- [] Trying out partial rendering
+- [] Fetch the data on the server, and pass it to as prop
+- [] Search
