@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Logo } from './components/logo'
+import Skeleton from './components/skeleton'
 
 interface FoodTruck {
   objectid: number
@@ -125,26 +126,38 @@ const App: React.FC = () => {
             <option value="italian">Italian</option>
           </select>
         </div>
-        <div className="">{isLoading && <p>Loading...</p>}</div>
         <div className="food-truck-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredTrucks.map((truck) => (
-            <div
-              className="food-truck-card p-6 border border-gray-200 bg-white rounded shadow-lg"
-              key={truck.objectid}
-            >
-              <h2 className="text-2xl font-semibold text-gray-900 mb-8">
-                {truck.applicant}
-              </h2>
-              <div className="text-left text-sm">
-                <p className="mb-1">Facility Type: {truck.facilitytype}</p>
-                <p className="mb-1">Location: {truck.locationdescription}</p>
-                <p className="mb-1">Address: {truck.address}</p>
-                <p className="mb-1">Permit: {truck.permit}</p>
-                <p className="mb-1">Status: {truck.status}</p>
-                <p>Food Items: {truck.fooditems}</p>
-              </div>
-            </div>
-          ))}
+          {isLoading
+            ? Array(9)
+                .fill(undefined)
+                .map((_, index) => (
+                  <div
+                    className="food-truck-card p-6 border border-gray-200 bg-white rounded shadow-lg"
+                    key={index}
+                  >
+                    <Skeleton />
+                  </div>
+                ))
+            : filteredTrucks.map((truck) => (
+                <div
+                  className="food-truck-card p-6 border border-gray-200 bg-white rounded shadow-lg"
+                  key={truck.objectid}
+                >
+                  <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+                    {truck.applicant}
+                  </h2>
+                  <div className="text-left text-sm">
+                    <p className="mb-1">Facility Type: {truck.facilitytype}</p>
+                    <p className="mb-1">
+                      Location: {truck.locationdescription}
+                    </p>
+                    <p className="mb-1">Address: {truck.address}</p>
+                    <p className="mb-1">Permit: {truck.permit}</p>
+                    <p className="mb-1">Status: {truck.status}</p>
+                    <p>Food Items: {truck.fooditems}</p>
+                  </div>
+                </div>
+              ))}
         </div>
       </div>
     </div>
