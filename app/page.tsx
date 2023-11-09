@@ -81,7 +81,7 @@ const App: React.FC = () => {
       <div className="mt-20">
         <button
           onClick={selectRandomFoodTrucks}
-          className="bg-gray-900 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded"
+          className="bg-textColor bg-gray-900 hover:bg-gray-500 text-[#ffffff] font-bold py-2 px-4 rounded"
         >
           Roll Three For Me
         </button>
@@ -93,10 +93,10 @@ const App: React.FC = () => {
         <div className="food-truck-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {randomFoodTrucks.map((truck) => (
             <div
-              className="food-truck-card p-6 mb-10 border-2 border-gray-500 bg-white rounded shadow-lg"
+              className="border-b-[40px] border border-greenish food-truck-card p-6 mb-10  bg-cardColor rounded shadow-sm"
               key={truck.objectid}
             >
-              <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+              <h2 className="text-2xl font-semibold text-textColor mb-8">
                 {truck.applicant}
               </h2>
               <div className="text-left text-sm">
@@ -111,12 +111,12 @@ const App: React.FC = () => {
           ))}
         </div>
         <div className="mt-5 mb-10">
-          <h2 className="font-bold text-xl mb-5">
+          <h2 className="font-bold text-xl mb-5 text-textColor">
             Or pick your lunch idea by country
           </h2>
           <select
             id="filterSelect"
-            className="block w-full border border-gray-300 rounded py-2 px-3"
+            className="block w-full rounded py-2 px-3"
             value={filterValue}
             onChange={handleFilterChange}
           >
@@ -140,13 +140,13 @@ const App: React.FC = () => {
                 ))
             : filteredTrucks.map((truck) => (
                 <div
-                  className="food-truck-card p-6 border border-gray-200 bg-white rounded shadow-lg"
+                  className="food-truck-card p-6 text-white bg-cardColor rounded shadow-md"
                   key={truck.objectid}
                 >
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+                  <h2 className="capitalize text-2xl font-semibold text-textColor mb-8">
                     {truck.applicant}
                   </h2>
-                  <div className="text-left text-sm">
+                  <div className="text-left text-sm mt-2 text-gray">
                     <p className="mb-1">Facility Type: {truck.facilitytype}</p>
                     <p className="mb-1">
                       Location: {truck.locationdescription}
