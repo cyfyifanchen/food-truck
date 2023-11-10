@@ -130,9 +130,9 @@ const App: React.FC = () => {
           {isLoading
             ? Array(9)
                 .fill(undefined)
-                .map((_, index) => (
+                .map((index) => (
                   <div
-                    className="food-truck-card p-6 border border-gray-200 bg-white rounded shadow-lg"
+                    className="food-truck-card p-6 rounded shadow-lg"
                     key={index}
                   >
                     <Skeleton />
@@ -140,7 +140,7 @@ const App: React.FC = () => {
                 ))
             : filteredTrucks.map((truck) => (
                 <div
-                  className="food-truck-card p-6 text-white bg-cardColor rounded shadow-md"
+                  className="food-truck-card p-6 bg-cardColor rounded shadow-md"
                   key={truck.objectid}
                 >
                   <h2 className="capitalize text-2xl font-semibold text-textColor mb-8">
