@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import SideNav from '@/app/ui/sidenav'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Food Truck App',
-  description: 'This is your lovely Food Truck App',
+  title: 'Truckee - food truck service',
+  description: 'Your friendly food truck service based in Bay Area.',
 }
 
 export default function RootLayout({
