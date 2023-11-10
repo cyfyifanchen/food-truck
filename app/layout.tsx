@@ -16,7 +16,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <div className="w-full flex-none md:w-64"></div>
       <body className={inter.className}>{children}</body>
     </html>
   )
