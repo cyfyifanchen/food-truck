@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
 const links = [
-  { name: 'Roll for me', href: '/dashboard' },
   {
     name: 'Pick by country',
-    href: '/dashboard/pick',
+    href: '/dashboard',
   },
+  { name: 'Roll for me', href: '/dashboard/pick' },
 ]
 
 export default function NavLinks() {
