@@ -7,7 +7,6 @@ import Skeleton from '@/app/ui/skeleton'
 export default function Page() {
   const apiUrl = 'https://data.sfgov.org/resource/rqzj-sfat.json'
   const [foodTrucks, setFoodTrucks] = useState<FoodTruck[]>([])
-  // const [isClient, setIsClient] = useState(false)
 
   // Initial Data
   const [filterValue, setFilterValue] = useState<string>('all')
@@ -30,7 +29,6 @@ export default function Page() {
   }
 
   useEffect(() => {
-    // setIsClient(true)
     axios
       .get<FoodTruck[]>(apiUrl)
       .then((response) => {
@@ -73,7 +71,7 @@ export default function Page() {
           onClick={selectRandomFoodTrucks}
           className="bg-fresh-textColor hover:bg-fresh-subTextColor text-[#ffffff] text-xl font-bold py-4 px-6 rounded"
         >
-          Roll Three For Me
+          Shuffle Three For Me
         </button>
         <p className="text-gray-400 mt-3">
           Hard to decide what to eat, roll for me.

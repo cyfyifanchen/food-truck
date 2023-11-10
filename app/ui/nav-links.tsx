@@ -5,7 +5,7 @@ const links = [
     name: 'Pick by country',
     href: '/dashboard',
   },
-  { name: 'Roll for me', href: '/dashboard/pick' },
+  { name: 'Shuffle for me', href: '/dashboard/shuffle' },
 ]
 
 export default function NavLinks() {
