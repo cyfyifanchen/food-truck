@@ -7,6 +7,7 @@ export const Logo = () => {
       width={200}
       alt="logo"
       src="/food-truck-logo.svg"
+      priority
     />
   )
 }
