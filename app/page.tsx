@@ -1,167 +1,36 @@
-'use client'
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import { Logo } from './components/logo'
-import Skeleton from './components/skeleton'
+import { ArrowRightIcon } from '@heroicons/react/24/outline'
+import { Logo } from './ui/logo'
 
-interface FoodTruck {
-  objectid: number
-  applicant: string
-  facilitytype: string
-  locationdescription: string
-  address: string
-  permit: string
-  status: string
-  fooditems: string
-}
+import Link from 'next/link'
 
-const App: React.FC = () => {
-  const apiUrl = 'https://data.sfgov.org/resource/rqzj-sfat.json'
-  const [foodTrucks, setFoodTrucks] = useState<FoodTruck[]>([])
-  // Initial Data
-  const [filterValue, setFilterValue] = useState<string>('all')
-  const [isLoading, setIsLoading] = useState(true)
-
-  // Random food truck
-  const [randomFoodTrucks, setRandomFoodTrucks] = useState<FoodTruck[]>([])
-
-  // Function to select a random food truck
-  const selectRandomFoodTrucks = () => {
-    const numberOfRandomTrucks = 3
-    const randomTrucks = []
-
-    for (let i = 0; i < numberOfRandomTrucks; i++) {
-      const randomIndex = Math.floor(Math.random() * filteredTrucks.length)
-      randomTrucks.push(filteredTrucks[randomIndex])
-    }
-
-    setRandomFoodTrucks(randomTrucks)
-  }
-
-  useEffect(() => {
-    axios
-      .get<FoodTruck[]>(apiUrl)
-      .then((response) => {
-        setFoodTrucks(response.data)
-        setIsLoading(false)
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error)
-        setIsLoading(true)
-      })
-  }, [])
-
-  // Handle filter change
-  const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilterValue(event.target.value)
-  }
-
-  // Filter food trucks based on the selected option
-  const filteredTrucks =
-    filterValue === 'mexican'
-      ? foodTrucks.filter((truck) =>
-          truck.fooditems?.toLowerCase().includes('tacos')
-        )
-      : filterValue === 'chinese'
-      ? foodTrucks.filter((truck) =>
-          truck.fooditems?.toLowerCase().includes('chinese')
-        )
-      : filterValue === 'italian'
-      ? foodTrucks.filter((truck) =>
-          truck.fooditems?.toLowerCase().includes('italian')
-        )
-      : foodTrucks
-
+export default function Page() {
   return (
-    <div className="w-full h-full text-center p-10">
-      <div className="flex justify-center">
-        <Logo />
+    <main className="flex min-h-screen flex-col p-6">
+      <div className="flex h-20 shrink-0 items-end rounded-lg bg-fresh-textColor p-4 md:h-52">
+        <div className="-mb-10">
+          <Logo />
+        </div>
       </div>
-      <p className="italic text-gray-400">A local food truck service</p>
-      <div className="mt-20">
-        <button
-          onClick={selectRandomFoodTrucks}
-          className="bg-textColor bg-gray-900 hover:bg-gray-500 text-[#ffffff] font-bold py-2 px-4 rounded"
-        >
-          Roll Three For Me
-        </button>
-        <p className="text-gray-400 mt-3">
-          Hard to decide what to eat, roll for me.
-        </p>
-      </div>
-      <div className="w-full h-full text-center p-10">
-        <div className="food-truck-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {randomFoodTrucks.map((truck) => (
-            <div
-              className="border-b-[40px] border border-greenish food-truck-card p-6 mb-10  bg-cardColor rounded shadow-sm"
-              key={truck.objectid}
+      <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
+        <div className="flex flex-col justify-center gap-6 rounded-lg bg-fresh-cardColor px-6 py-10 md:w-2/5 md:px-20">
+          <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}>
+            <strong>Welcome to Truckee.</strong> A local food truck service.{' '}
+            <a
+              href="https://cyfyifanchen.com"
+              className="text-xl text-fresh-textColor hover:underline"
             >
-              <h2 className="text-2xl font-semibold text-textColor mb-8">
-                {truck.applicant}
-              </h2>
-              <div className="text-left text-sm">
-                <p className="mb-1">Facility Type: {truck.facilitytype}</p>
-                <p className="mb-1">Location: {truck.locationdescription}</p>
-                <p className="mb-1">Address: {truck.address}</p>
-                <p className="mb-1">Permit: {truck.permit}</p>
-                <p className="mb-1">Status: {truck.status}</p>
-                <p>Food Items: {truck.fooditems}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-5 mb-10">
-          <h2 className="font-bold text-xl mb-5 text-textColor">
-            Or pick your lunch idea by country
-          </h2>
-          <select
-            id="filterSelect"
-            className="block w-full rounded py-2 px-3"
-            value={filterValue}
-            onChange={handleFilterChange}
+              Designed by Elliott Chen
+            </a>
+          </p>
+          <Link
+            href="/dashboard"
+            className="flex items-center gap-5 self-start rounded-lg bg-fresh-textColor px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-fresh-subTextColor md:text-base"
           >
-            <option value="all">All</option>
-            <option value="chinese">Chinese</option>
-            <option value="mexican">Mexican</option>
-            <option value="italian">Italian</option>
-          </select>
+            <span>Discover</span> <ArrowRightIcon className="w-3 md:w-6" />
+          </Link>
         </div>
-        <div className="food-truck-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {isLoading
-            ? Array(9)
-                .fill(undefined)
-                .map((index) => (
-                  <div
-                    className="food-truck-card p-6 rounded shadow-lg"
-                    key={index}
-                  >
-                    <Skeleton />
-                  </div>
-                ))
-            : filteredTrucks.map((truck) => (
-                <div
-                  className="food-truck-card p-6 bg-cardColor rounded shadow-md"
-                  key={truck.objectid}
-                >
-                  <h2 className="capitalize text-2xl font-semibold text-textColor mb-8">
-                    {truck.applicant}
-                  </h2>
-                  <div className="text-left text-sm mt-2 text-gray">
-                    <p className="mb-1">Facility Type: {truck.facilitytype}</p>
-                    <p className="mb-1">
-                      Location: {truck.locationdescription}
-                    </p>
-                    <p className="mb-1">Address: {truck.address}</p>
-                    <p className="mb-1">Permit: {truck.permit}</p>
-                    <p className="mb-1">Status: {truck.status}</p>
-                    <p>Food Items: {truck.fooditems}</p>
-                  </div>
-                </div>
-              ))}
-        </div>
+        <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12"></div>
       </div>
-    </div>
+    </main>
   )
 }
-
-export default App
