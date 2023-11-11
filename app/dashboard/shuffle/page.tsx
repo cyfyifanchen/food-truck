@@ -71,7 +71,7 @@ export default function Page() {
           onClick={selectRandomFoodTrucks}
           className="bg-fresh-textColor hover:bg-fresh-subTextColor text-[#ffffff] text-xl font-bold py-4 px-6 rounded"
         >
-          Shuffle Three Truckee For Me
+          Shuffle Three Truckees For Me
         </button>
         <p className="text-gray-400 mt-3">
           Hard to decide what to eat, roll for me.
