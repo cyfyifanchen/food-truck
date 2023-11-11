@@ -2,10 +2,10 @@ import Link from 'next/link'
 
 const links = [
   {
-    name: 'Pick by country',
+    name: 'Select truckee',
     href: '/dashboard',
   },
-  { name: 'Shuffle for me', href: '/dashboard/shuffle' },
+  { name: 'Shuffle truckee', href: '/dashboard/shuffle' },
 ]
 
 export default function NavLinks() {
