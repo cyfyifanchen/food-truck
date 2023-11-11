@@ -54,7 +54,7 @@ export default function Page() {
       <div className="w-full h-full text-center p-10">
         <div className="mt-5 mb-10">
           <h2 className="font-bold text-xl mb-5 text-textColor">
-            Pick lunch idea by country
+            Select truckee by country
           </h2>
           <select
             id="filterSelect"
