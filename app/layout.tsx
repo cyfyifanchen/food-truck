@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Truckee - food truck service',
+  title: 'Truckee - a food truck service',
   description: 'Your friendly food truck service based in Bay Area.',
 }
 

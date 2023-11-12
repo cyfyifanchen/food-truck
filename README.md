@@ -10,6 +10,8 @@ And, I'd like to get feedbacks to make it better.
 
 ## Screenshots
 
+This is an early iteration of the project, UI and code may change a lot.
+
 ![](public/food-truck.png)
 
 ## Start the project locally
