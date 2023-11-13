@@ -1,5 +1,7 @@
 # Food Truck Web App
 
+![](./public/truckee.gif)
+
 Visit [The Food Truck Web App](https://food-truck-theta.vercel.app/) live.
 
 ## Motivation
@@ -7,12 +9,6 @@ Visit [The Food Truck Web App](https://food-truck-theta.vercel.app/) live.
 I start to like this little project, I decide to take it as far as I can, polishing it up, making it a real-world product in any way that can impress anyone.(anyone includes my mom in case I Fed up). 🤔
 
 And, I'd like to get feedbacks to make it better.
-
-## Screenshots
-
-This is an early iteration of the project, UI and code may change a lot.
-
-![](public/trukee.gif)
 
 ## Start the project locally
 
