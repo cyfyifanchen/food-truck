@@ -12,7 +12,7 @@ And, I'd like to get feedbacks to make it better.
 
 This is an early iteration of the project, UI and code may change a lot.
 
-![](public/food-truck.png)
+![](public/trukee.gif)
 
 ## Start the project locally
 
