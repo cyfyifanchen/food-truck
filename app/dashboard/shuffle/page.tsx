@@ -3,19 +3,14 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Skeleton from '@/app/ui/skeleton'
+import { fetchFoodTrucks } from '@/app/lib/api'
 
 export default function Page() {
-  const apiUrl = 'https://data.sfgov.org/resource/rqzj-sfat.json'
   const [foodTrucks, setFoodTrucks] = useState<FoodTruck[]>([])
-
-  // Initial Data
   const [filterValue, setFilterValue] = useState<string>('all')
   const [isLoading, setIsLoading] = useState(true)
-
-  // Random food truck
   const [randomFoodTrucks, setRandomFoodTrucks] = useState<FoodTruck[]>([])
 
-  // Function to select a random food truck
   const selectRandomFoodTrucks = () => {
     const numberOfRandomTrucks = 3
     const randomTrucks = []
@@ -29,24 +24,25 @@ export default function Page() {
   }
 
   useEffect(() => {
-    axios
-      .get<FoodTruck[]>(apiUrl)
-      .then((response) => {
-        setFoodTrucks(response.data)
+    const fetchData = async () => {
+      try {
+        setIsLoading(true)
+        const data = await fetchFoodTrucks()
+        setFoodTrucks(data)
         setIsLoading(false)
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Error fetching data:', error)
         setIsLoading(true)
-      })
+      }
+    }
+
+    fetchData()
   }, [])
 
-  // Handle filter change
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterValue(event.target.value)
   }
 
-  // Filter food trucks based on the selected option
   const filteredTrucks =
     filterValue === 'mexican'
       ? foodTrucks.filter((truck) =>
