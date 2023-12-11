@@ -3,28 +3,28 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Skeleton from '@/app/ui/skeleton'
+import { keysToCamelCase } from '@/app/lib/case'
+import { fetchFoodTrucks } from '@/app/lib/api'
 
 export default function Page() {
-  const apiUrl = 'https://data.sfgov.org/resource/rqzj-sfat.json'
   const [foodTrucks, setFoodTrucks] = useState<FoodTruck[]>([])
-  // const [isClient, setIsClient] = useState(false)
-
-  // Initial Data
   const [filterValue, setFilterValue] = useState<string>('all')
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // setIsClient(true)
-    axios
-      .get<FoodTruck[]>(apiUrl)
-      .then((response) => {
-        setFoodTrucks(response.data)
+    const fetchData = async () => {
+      try {
+        setIsLoading(true)
+        const data = await fetchFoodTrucks()
+        setFoodTrucks(data)
         setIsLoading(false)
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Error fetching data:', error)
         setIsLoading(true)
-      })
+      }
+    }
+
+    fetchData()
   }, [])
 
   // Handle filter change
