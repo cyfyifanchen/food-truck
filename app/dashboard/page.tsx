@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import Skeleton from '@/app/ui/skeleton'
 import { keysToCamelCase } from '@/app/lib/case'
 import { fetchFoodTrucks } from '@/app/lib/api'
@@ -27,12 +26,10 @@ export default function Page() {
     fetchData()
   }, [])
 
-  // Handle filter change
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterValue(event.target.value)
   }
 
-  // Filter food trucks based on the selected option
   const filteredTrucks =
     filterValue === 'mexican'
       ? foodTrucks.filter((truck) =>
