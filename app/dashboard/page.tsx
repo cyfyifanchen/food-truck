@@ -30,6 +30,10 @@ export default function Page() {
     setFilterValue(event.target.value)
   }
 
+  function capitalizeFirstLetter(string: string) {
+    return string && string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
   const filteredTrucks =
     filterValue === 'mexican'
       ? foodTrucks.filter((truck) =>
@@ -79,21 +83,35 @@ export default function Page() {
                 ))
             : filteredTrucks.map((truck) => (
                 <div
-                  className="food-truck-card p-6 bg-fresh-cardColor border border-t-[10px]  border-fresh-textColor rounded shadow-md"
+                  className="food-truck-card p-6 bg-white border border-gray-200 rounded-lg shadow-md"
                   key={truck.objectid}
                 >
-                  <h2 className="capitalize text-2xl font-semibold text-textColor mb-8">
+                  <h2 className="text-2xl font-semibold text-gray-700 mb-4">
                     {truck.applicant}
                   </h2>
-                  <div className="text-left text-sm mt-2 text-gray">
-                    <p className="mb-1">Facility Type: {truck.facilitytype}</p>
+                  <div className="text-left text-sm mt-2 text-gray-600">
                     <p className="mb-1">
-                      Location: {truck.locationdescription}
+                      <strong>Facility Type:</strong>{' '}
+                      {capitalizeFirstLetter(truck.facilitytype)}
                     </p>
-                    <p className="mb-1">Address: {truck.address}</p>
-                    <p className="mb-1">Permit: {truck.permit}</p>
-                    <p className="mb-1">Status: {truck.status}</p>
-                    <p>Food Items: {truck.fooditems}</p>
+                    <p className="mb-1">
+                      <strong>Location:</strong>
+                      <span className="block text-gray-500 text-sm mt-1">
+                        {truck.locationdescription}
+                      </span>
+                    </p>
+                    <p className="mb-1">
+                      <strong>Address:</strong> {truck.address}
+                    </p>
+                    <p className="mb-1">
+                      <strong>Permit:</strong> {truck.permit}
+                    </p>
+                    <p className="mb-1">
+                      <strong>Status:</strong> {truck.status}
+                    </p>
+                    <p>
+                      <strong>Food Items:</strong> {truck.fooditems}
+                    </p>
                   </div>
                 </div>
               ))}
