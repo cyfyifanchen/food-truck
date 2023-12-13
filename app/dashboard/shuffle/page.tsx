@@ -1,8 +1,6 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import Skeleton from '@/app/ui/skeleton'
 import { fetchFoodTrucks } from '@/app/lib/api'
 
 export default function Page() {
