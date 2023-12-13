@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import Skeleton from '@/app/ui/skeleton'
 import { keysToCamelCase } from '@/app/lib/case'
 import { fetchFoodTrucks } from '@/app/lib/api'
@@ -26,14 +27,12 @@ export default function Page() {
     fetchData()
   }, [])
 
+  // Handle filter change
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterValue(event.target.value)
   }
 
-  function capitalizeFirstLetter(string: string) {
-    return string && string.charAt(0).toUpperCase() + string.slice(1)
-  }
-
+  // Filter food trucks based on the selected option
   const filteredTrucks =
     filterValue === 'mexican'
       ? foodTrucks.filter((truck) =>
@@ -92,7 +91,7 @@ export default function Page() {
                   <div className="text-left text-sm mt-2 text-gray-600">
                     <p className="mb-1">
                       <strong>Facility Type:</strong>{' '}
-                      {capitalizeFirstLetter(truck.facilitytype)}
+                      capitalizeFirstLetter(truck.facilitytype)
                     </p>
                     <p className="mb-1">
                       <strong>Location:</strong>
