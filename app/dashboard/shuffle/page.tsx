@@ -59,7 +59,6 @@ export default function Page() {
   return (
     <div className="w-full h-full text-center p-10">
       <div className="flex border-fresh-textColor justify-center"></div>
-      {/* <p className="italic text-gray-400">A local food truck service</p> */}
       <div className="mt-20">
         <button
           onClick={selectRandomFoodTrucks}
@@ -68,20 +67,22 @@ export default function Page() {
           Shuffle Three Truckees For Me
         </button>
         <p className="text-gray-400 mt-3">
-          Hard to decide what to eat, roll for me.
+          Hard to decide what to eat, for me.
         </p>
       </div>
       <div className="w-full h-full text-center p-10">
         <div className="food-truck-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {randomFoodTrucks.map((truck) => (
             <div
-              className="border-t-[30px] border border-fresh-textColor food-truck-card p-6 mb-10  bg-fresh-cardColor rounded shadow-sm"
+              className="border-t-[30px] border border-fresh-textColor food-truck-card mb-10  bg-fresh-cardColor rounded shadow-sm"
               key={truck.objectid}
             >
-              <h2 className="text-2xl font-semibold text-textColor mb-8">
-                {truck.applicant}
-              </h2>
-              <div className="text-left text-sm">
+              <div className="bg-fresh-textColor py-5">
+                <h2 className="text-2xl bg-fresh-textColor font-semibold text-white mb-4">
+                  {truck.applicant}
+                </h2>
+              </div>
+              <div className="p-6 text-left text-sm">
                 <p className="mb-1">Facility Type: {truck.facilitytype}</p>
                 <p className="mb-1">Location: {truck.locationdescription}</p>
                 <p className="mb-1">Address: {truck.address}</p>
