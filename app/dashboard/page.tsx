@@ -52,9 +52,9 @@ export default function Page() {
       <div className="w-full h-full text-center p-10">
         <div className="mt-5 mb-10">
           <h2 className="font-bold text-xl mb-5 text-textColor">
-            Select truckee by country
+            Select truckees by country
           </h2>
-          <div className="flex space-x-4">
+          <div className="flex justify-center space-x-4">
             <button
               className={`py-2 px-4 rounded ${
                 filterValue === 'all'
@@ -111,13 +111,15 @@ export default function Page() {
                 ))
             : filteredTrucks.map((truck) => (
                 <div
-                  className="food-truck-card p-6 bg-white border border-gray-200 rounded-lg shadow-md"
+                  className="food-truck-card bg-fresh-cardColor border border-t-[10px]  border-fresh-textColor rounded shadow-md"
                   key={truck.objectid}
                 >
-                  <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-                    {truck.applicant}
-                  </h2>
-                  <div className="text-left text-sm mt-2 text-gray-600">
+                  <div className="bg-fresh-textColor py-5">
+                    <h2 className="text-2xl bg-fresh-textColor font-semibold text-white mb-4">
+                      {truck.applicant}
+                    </h2>
+                  </div>
+                  <div className="p-6 text-left text-sm mt-2 text-gray-600">
                     <p className="mb-1">
                       <strong>Facility Type:</strong> (truck.facilitytype)
                     </p>
