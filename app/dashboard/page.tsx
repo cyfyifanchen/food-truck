@@ -58,7 +58,7 @@ export default function Page() {
           </h2>
           <select
             id="filterSelect"
-            className="block w-full rounded py-2 px-3"
+            className="block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             value={filterValue}
             onChange={handleFilterChange}
           >
@@ -90,8 +90,7 @@ export default function Page() {
                   </h2>
                   <div className="text-left text-sm mt-2 text-gray-600">
                     <p className="mb-1">
-                      <strong>Facility Type:</strong>{' '}
-                      capitalizeFirstLetter(truck.facilitytype)
+                      <strong>Facility Type:</strong> (truck.facilitytype)
                     </p>
                     <p className="mb-1">
                       <strong>Location:</strong>
