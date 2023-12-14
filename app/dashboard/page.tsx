@@ -1,9 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import Skeleton from '@/app/ui/skeleton'
-import { keysToCamelCase } from '@/app/lib/case'
 import { fetchFoodTrucks } from '@/app/lib/api'
 
 export default function Page() {
@@ -28,8 +26,8 @@ export default function Page() {
   }, [])
 
   // Handle filter change
-  const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilterValue(event.target.value)
+  function handleFilterChange(value: string) {
+    setFilterValue(value)
   }
 
   // Filter food trucks based on the selected option
@@ -56,17 +54,48 @@ export default function Page() {
           <h2 className="font-bold text-xl mb-5 text-textColor">
             Select truckee by country
           </h2>
-          <select
-            id="filterSelect"
-            className="block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            value={filterValue}
-            onChange={handleFilterChange}
-          >
-            <option value="all">All</option>
-            <option value="chinese">Chinese</option>
-            <option value="mexican">Mexican</option>
-            <option value="italian">Italian</option>
-          </select>
+          <div className="flex space-x-4">
+            <button
+              className={`py-2 px-4 rounded ${
+                filterValue === 'all'
+                  ? 'bg-fresh-textColor text-white'
+                  : 'bg-white text-color'
+              }`}
+              onClick={() => handleFilterChange('all')}
+            >
+              All
+            </button>
+            <button
+              className={`py-2 px-4 rounded ${
+                filterValue === 'chinese'
+                  ? 'bg-fresh-textColor text-white'
+                  : 'bg-white text-color'
+              }`}
+              onClick={() => handleFilterChange('chinese')}
+            >
+              Chinese
+            </button>
+            <button
+              className={`py-2 px-4 rounded ${
+                filterValue === 'mexican'
+                  ? 'bg-fresh-textColor text-white'
+                  : 'bg-white text-color'
+              }`}
+              onClick={() => handleFilterChange('mexican')}
+            >
+              Mexican
+            </button>
+            <button
+              className={`py-2 px-4 rounded ${
+                filterValue === 'italian'
+                  ? 'bg-fresh-textColor text-white'
+                  : 'bg-white text-color'
+              }`}
+              onClick={() => handleFilterChange('italian')}
+            >
+              Italian
+            </button>
+          </div>
         </div>
         <div className="food-truck-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {isLoading
