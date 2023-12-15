@@ -115,7 +115,7 @@ export default function Page() {
                   key={truck.objectid}
                 >
                   <div className="bg-fresh-textColor py-5">
-                    <h2 className="text-2xl bg-fresh-textColor font-semibold text-white mb-4">
+                    <h2 className="text-xl bg-fresh-textColor font-semibold text-white mb-4">
                       {truck.applicant}
                     </h2>
                   </div>
