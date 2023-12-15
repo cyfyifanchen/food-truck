@@ -27,7 +27,7 @@ export default function NavLinks() {
             className={clsx(
               'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-fresh-cardColor p-3 text-sm font-medium hover:bg-fresh-subTextColor hover:text-white md:flex-none md:justify-start md:p-2 md:px-3',
               {
-                'bg-fresh-subTextColor text-white': pathname === link.href,
+                'bg-fresh-textColor text-white': pathname === link.href,
               }
             )}
           >
