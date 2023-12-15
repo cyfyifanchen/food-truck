@@ -2,8 +2,6 @@
 
 ![](./public/truckee.gif)
 
-Visit [The Food Truck Web App](https://food-truck-theta.vercel.app/) live.
-
 ## Motivation
 
 I start to like this little project, I decide to take it as far as I can, polishing it up, making it a real-world product in any way that can impress anyone.(anyone includes my mom in case I Fed up). 🤔
