@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Roboto_Condensed } from 'next/font/google'
+import { siteConfig } from '@/config/site'
 import './globals.css'
 
 const roboto = Roboto_Condensed({
@@ -8,8 +9,17 @@ const roboto = Roboto_Condensed({
 })
 
 export const metadata: Metadata = {
-  title: 'Truckee - a food truck service',
-  description: 'Your friendly food truck service based in Bay Area.',
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  icons: [
+    {
+      url: '/food-truck-logo.svg',
+      href: '/food-truck-logo.svg',
+    },
+  ],
 }
 
 export default function RootLayout({
