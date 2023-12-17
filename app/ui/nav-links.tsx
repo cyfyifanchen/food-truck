@@ -1,17 +1,17 @@
 'use client'
 
 import Link from 'next/link'
-import { HomeIcon, ArrowPathIcon } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
+import { MousePointerSquare, Shuffle } from 'lucide-react'
 
 const links = [
   {
     name: 'Select truckee',
     href: '/dashboard',
-    icon: HomeIcon,
+    icon: MousePointerSquare,
   },
-  { name: 'Shuffle truckee', href: '/dashboard/shuffle', icon: ArrowPathIcon },
+  { name: 'Shuffle truckee', href: '/dashboard/shuffle', icon: Shuffle },
 ]
 
 export default function NavLinks() {
